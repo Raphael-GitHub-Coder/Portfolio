@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizspiel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-header" id="quiz-header">
+            <h1>Quiz</h1>
+        </div>
+        <div class="quiz-container">
+            <h2>Frage:</h2>
+            <div id="question-container">
+                <h2 id="question">Frage hier</h2>
+            </div>
+            <div id="answer-buttons" class="btn-grid"></div>
+        </div>
+        <div class="status-container">
+            <h2>Status</h2>
+            <div id="status"></div>
+        </div>
+        <div class="score-container">
+            <h2>Antwortenübersicht</h2>
+            <div id="point-summary" class="point-summary"></div>
+        </div>
+    </div>
+
+    <div id="status-container">
+        <h2>Aktueller Stand</h2>
+        <div id="status"></div>
+        <div id="progress"></div>
+        <br>
+        <button id="end-quiz-button" onclick="endQuiz()">Quiz beenden</button>
+    </div>
+
+    <div id="end-popup" class="popup">
+        <div class="popup-content">
+            <h2>Quiz beendet!</h2>
+            <p>Richtige Antworten: <span id="correct-answers"></span></p>
+            <p>Falsche Antworten: <span id="incorrect-answers"></span></p>
+            <button onclick="restartQuiz()">Quiz erneut starten</button>
+        </div>
+    </div>
+
+    <div id="blur-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+
+
+
+
+
+
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    .buttons {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .buttons button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+    }
+    
+    #transactions-container {
+        margin-top: 20px;
+    }
+    
+    .transaction {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    
+    .delete-btn {
+        background-color: #ff6347;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    .transaction-section {
+        margin-top: 20px;
+    }
+    
+    .transaction-section h2 {
+        margin-bottom: 10px;
+    }
+    
+    .transactions-container {
+        margin-top: 10px;
+    }
+    
+    .fa-arrow-up {
+        color: #28a745;
+    }
+    
+    .fa-arrow-down {
+        color: #dc3545;
+    }
+    
+    .fa-plus {
+        margin-right: 5px;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .transaction-section {
+        margin-top: 20px;
+        animation: fadein 0.5s ease;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #007bff;
+    }
+    
+    .buttons {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .buttons button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #income-btn {
+        background-color: #28a745;
+        color: #fff;
+    }
+    
+    #income-btn:hover {
+        background-color: #23c549;
+        color: #fff;
+    }
+    
+    #expense-btn {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    
+    #expense-btn:hover {
+        background-color: #dd0c21;
+        color: #fff;
+    }
+    
+    form {
+        margin-bottom: 20px;
+    }
+    
+    form input[type="text"],
+    form input[type="number"],
+    form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    form button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .transactions-container {
+        border-top: 1px solid #ccc;
+        margin-top: 20px;
+        padding-top: 10px;
+    }
+    
+    .transaction {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .transaction i {
+        margin-right: 5px;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .transaction-section {
+        animation: fadein 0.5s ease;
+    }
+    
+    
+    .container {
+        max-width: 800px; 
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    h1 {
+        margin-bottom: 30px;
+        color: #007bff;
+    }
+    
+    .buttons {
+        margin-bottom: 20px;
+    }
+    
+    .buttons button {
+        margin: 0 10px;
+    }
+    
+    #show-all-btn {
+        margin-bottom: 30px;
+    }
+    
+    #show-all-btn:hover {
+        background-color: #ccc;
+    }
+    
+    /* Form styling */
+    form {
+        margin-bottom: 20px;
+    }
+    
+    form input[type="text"],
+    form input[type="number"],
+    form select {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    form button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .transaction-section {
+        margin-bottom: 40px; 
+    }
+    
+    #income-section {
+        background-color: #d4edda; 
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    #expense-section {
+        background-color: #f8d7da; 
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    .transactions-container {
+        border-top: 1px solid transparent; 
+        margin: 0 auto; 
+        padding-top: 20px; 
+        padding-bottom: 20px; 
+        text-align: left; 
+        max-width: 500px; 
+    }
+    
+    
+    .transaction {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .transaction i {
+        margin-right: 5px;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .transaction-section {
+        animation: fadein 0.5s ease;
+    }
+    
+    .toggle-icon {
+        display: inline-block;
+        margin-top: 10px; 
+        font-size: 24px; 
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .toggle-icon:hover {
+        color: #0056b3; 
+    }
+    
+    .fa-chevron-down {
+        transform: scaleX(1.9); 
+    }
+    
+    .fa-chevron-right {
+        transform: scaleX(1.5) rotate(-90deg); 
+    }
+    
+    .search-box {
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .search-box input[type="text"] {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .search-box button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .search-box button:hover {
+        background-color: #0056b3;
+    }
+    
+    .highlight {
+        background-color: #cce5ff;
+        border-radius: 15px; 
+        transition: background-color 0.5s ease; 
+    }
+    
+    .total-section {
+        background-color: #f0f0f0; 
+        border-radius: 10px; 
+        padding: 10px; 
+        margin-bottom: 20px; 
+    }
+    
+    .total-section:hover {
+        background-color: #d3d0d0; 
+        border-radius: 10px; 
+        padding: 10px; 
+        margin-bottom: 20px; 
+    }
+    
+    .total-section span {
+        font-size: 20px; 
+        font-weight: bold; 
+        color: #333; 
+    }
+    
+    .total-section i {
+        font-size: 24px; 
+        margin-left: 10px; 
+    }
+    
+    .total-section.negative {
+        background-color: #ffcccc; 
+    }
+    
+    .total-section.positive {
+        background-color: #ccffcc; 
+    }
+    
+    @media (max-width: 600px) {
+        .container {
+            margin: 20px;
+            padding: 10px;
+        }
+    
+        .buttons button {
+            padding: 8px 16px;
+            margin: 5px;
+            font-size: 14px;
+        }
+    
+        form input[type="text"],
+        form input[type="number"],
+        form select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 8px;
+        }
+    
+        form button[type="submit"] {
+            padding: 8px;
+        }
+    
+        .search-box input[type="text"] {
+            width: 93%;
+            margin-bottom: 10px;
+        }
+    
+        .search-box button {
+            width: 48%;
+            padding: 8px;
+            margin: 2px;
+        }
+    }
+    
+    #footer {
+        background-color: #f0f0f0; /* hellgrau */
+        padding: 10px;
+        text-align: center;
+        margin-top: 60px;
+        border-top: 1px solid #ddd;
+    }
+    
+    #footer p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    #email-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    #email-button:hover {
+        background-color: #0056b3;
+    }
+    
+    
+    
+    
+    
+    /* Authentifizierungscontainer */
+    #auth-container {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+    
+    #auth-container input {
+        width: calc(100% - 20px);
+        margin: 10px 0;
+        padding: 10px;
+    }
+    
+    #auth-container button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    #auth-container button:hover {
+        background-color: #0056b3;
+    }
+    
+    #auth-message {
+        color: red;
+        font-size: 14px;
+    }
+    
+    /* Benutzerinformationen */
+    #user-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    #user-info #current-user {
+        font-size: 14px;
+        padding-right: 140px;
+        color: #333;
+    }
+
+
+    
+    #user-info #logout-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    #user-info #logout-button:hover {
+        background-color: #0056b3;
+    }
+    
+    #herrsteller {
+        padding-top: 15px;
+        font-size: 14px;
+        color: gray;
+    }
+
+    #delete-user-button {
+        background-color: red;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        position: absolute;
+        top: 18px;
+        right: 105px;
+    }
+
+    @media (max-width: 412px) {
+            #delete-user-button {
+                top: 22px; /* Verschiebung um 5px nach unten */
+            }
+        }
+
+        #paypal {
+            margin-top: 50px;
+            background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        }
+
+        #paypal:hover {
+            background-color: #0056b3;
+        }
+
+        #bitcoin {
+            margin-top: 10px;
+            background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        }
+
+        #bitcoin:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Login/Register Form -->
+    <div id="auth-container">
+        <h2>Anmelden</h2>
+        <form id="login-form">
+            <input type="text" id="login-username" placeholder="Benutzername oder E-Mail-Adresse" required>
+            <input type="password" id="login-password" placeholder="Passwort" required>
+            <button type="submit">Anmelden</button>
+        </form>
+        <h2>Registrieren</h2>
+        <form id="register-form">
+            <input type="text" id="register-username" placeholder="Benutzername oder E-Mail-Adresse" required>
+            <input type="password" id="register-password" placeholder="Passwort" required>
+            <button type="submit">Registrieren</button>
+        </form>
+        <!-- Admin Panel -->
+        <div id="admin-panel" style="display: none;">
+            <h2>Admin Panel</h2>
+            <div id="admin-panel-container">
+                <!-- Hier werden die Benutzer angezeigt -->
+            </div>
+        </div>
+        <p id="auth-message"></p>
+        <!-- Demo Button -->
+        <button id="demo-button">Testdemo</button>
+        <p id="herrsteller">Programmiert und designt von Raphael Neumeier</p>
+    </div>
+    <!-- Main Content -->
+    <div id="main-content" style="display:none;">
+        <div id="user-info">
+            <span id="current-user"></span>
+            <button id="logout-button">Abmelden</button>
+        </div>
+        <div class="container">
+            <h1>Budgetplaner<i class="fas fa-chart-pie"></i></h1>
+            <div class="buttons">
+                <button id="income-btn" class="transaction-btn"><i class="fas fa-plus-circle"></i> Einnahme</button>
+                <button id="expense-btn" class="transaction-btn"><i class="fas fa-minus-circle"></i> Ausgabe</button>
+                <button id="show-all-btn"><i class="fas fa-eye"></i> Alles anzeigen</button>
+            </div>
+            <div class="transaction-section" id="income-section">
+                <h2>Einnahmen</h2>
+                <form id="income-form">
+                    <input type="text" id="income-description" placeholder="Beschreibung" required>
+                    <input type="number" id="income-amount" placeholder="Betrag" required>
+                    <select id="income-category" required>
+                        <option value="" disabled selected>Kategorie wählen</option>
+                        <option value="Gehalt">Gehalt</option>
+                        <option value="Verkauf">Verkauf</option>
+                        <option value="Taschengeld">Taschengeld</option>
+                        <option value="Nebenjob">Nebenjob</option>
+                        <option value="Sonstiges">Sonstiges</option>
+                    </select>
+                    <button type="submit"><i class="fas fa-check"></i> Hinzufügen</button>
+                </form>
+                <i id="income-toggle" class="fas fa-chevron-down toggle-icon"></i>
+                <div id="income-transactions-container" class="transactions-container"></div>
+            </div>
+            <div class="transaction-section" id="expense-section">
+                <h2>Ausgaben</h2>
+                <form id="expense-form">
+                    <input type="text" id="expense-description" placeholder="Beschreibung" required>
+                    <input type="number" id="expense-amount" placeholder="Betrag" required>
+                    <select id="expense-category" required>
+                        <option value="" disabled selected>Kategorie wählen</option>
+                        <option value="Lebensmittel">Lebensmittel</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Freizeit">Freizeit</option>
+                        <option value="Luxus">Luxus</option>
+                        <option value="Geschenk">Geschenk</option>
+                        <option value="Miete">Miete</option>
+                        <option value="Sonstiges">Sonstiges</option>
+                    </select>
+                    <button type="submit"><i class="fas fa-check"></i> Hinzufügen</button>
+                </form>
+                <i id="expense-toggle" class="fas fa-chevron-down toggle-icon"></i>
+                <div id="expense-transactions-container" class="transactions-container"></div>
+            </div>
+            <div id="total-section" class="total-section">
+                <h2>Gesamt</h2>
+                <p>Aktueller Kontostand: <span>0€</span></p>
+            </div>
+            <div class="search-box">
+                <input type="text" id="transaction-search" placeholder="Nach Transaktionen suchen...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <button id="clear-search-btn"><i class="fas fa-times"></i></button>
+            </div>
+            
+            
+            
+            
+            <a href="https://www.paypal.com/login" target="_blank" rel="noopener noreferrer">
+                <button id="paypal">Klicken Sie hier, um PayPal mit dem Budgetplaner zu verknüpfen!</button>
+            </a>
+
+            <a href="https://de.tradingview.com/symbols/BTCUSD/" target="_blank" rel="noopener noreferrer">
+                <button id="bitcoin">Bitcoin Kursdiagramm anzeigen</button>
+            </a>
+
+
+
+            
+
+            <div id="footer">
+                <p>Programmiert und designt von Raphael Neumeier</p>
+                <button id="email-button">E-Mail</button>
+            </div>
+
+
+
+
+
+
+
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const incomeBtn = document.getElementById('income-btn');
+    const expenseBtn = document.getElementById('expense-btn');
+    const incomeForm = document.getElementById('income-form');
+    const expenseForm = document.getElementById('expense-form');
+    const incomeTransactionsContainer = document.getElementById('income-transactions-container');
+    const expenseTransactionsContainer = document.getElementById('expense-transactions-container');
+    const showAllBtn = document.getElementById('show-all-btn');
+    const incomeToggle = document.getElementById('income-toggle');
+    const expenseToggle = document.getElementById('expense-toggle');
+    const totalSection = document.getElementById('total-section');
+    const authContainer = document.getElementById('auth-container');
+    const mainContent = document.getElementById('main-content');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const authMessage = document.getElementById('auth-message');
+    const currentUserElement = document.getElementById('current-user');
+    const logoutButton = document.getElementById('logout-button');
+    const demoButton = document.getElementById('demo-button'); // Demo-Button hinzugefügt
+    const deleteUserButton = document.createElement('button'); // Button zum Löschen des Benutzers hinzugefügt
+    deleteUserButton.id = 'delete-user-button';
+    deleteUserButton.textContent = 'Benutzer löschen';
+    mainContent.appendChild(deleteUserButton);
+
+    let incomeTransactions = [];
+    let expenseTransactions = [];
+    let users = JSON.parse(localStorage.getItem('users')) || {};
+    let currentUser = localStorage.getItem('currentUser');
+
+    if (currentUser) {
+        showMainContent();
+        loadUserTransactions();
+    }
+
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+
+        if (users[username] && users[username].password === password) {
+            currentUser = username;
+            localStorage.setItem('currentUser', currentUser);
+            showMainContent();
+            loadUserTransactions();
+        } else {
+            authMessage.textContent = 'Ungültiger Benutzername oder Passwort.';
+        }
+    });
+
+    registerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const username = document.getElementById('register-username').value;
+        const password = document.getElementById('register-password').value;
+
+        if (users[username]) {
+            authMessage.textContent = 'Benutzername ist bereits vergeben.';
+        } else {
+            users[username] = { password, incomeTransactions: [], expenseTransactions: [] };
+            localStorage.setItem('users', JSON.stringify(users));
+            authMessage.textContent = 'Registrierung erfolgreich! Bitte anmelden.';
+        }
+    });
+
+    logoutButton.addEventListener('click', function () {
+        currentUser = null;
+        localStorage.removeItem('currentUser');
+        mainContent.style.display = 'none';
+        authContainer.style.display = 'block';
+    });
+
+    // Demo-Button-Klick-Ereignis
+    demoButton.addEventListener('click', function () {
+        currentUser = 'Demo-Benutzer';
+        showMainContent();
+        loadUserTransactions();
+        // Setze den aktuellen Benutzer im Benutzerinfo-Element
+        currentUserElement.textContent = `Angemeldet als: ${currentUser} (Demo)`;
+    });
+
+    deleteUserButton.addEventListener('click', function () {
+        if (confirm('Möchten Sie diesen Benutzer wirklich löschen?')) {
+            delete users[currentUser];
+            localStorage.setItem('users', JSON.stringify(users));
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            mainContent.style.display = 'none';
+            authContainer.style.display = 'block';
+            authMessage.textContent = 'Benutzer erfolgreich gelöscht.';
+        }
+    });
+
+    function showMainContent() {
+        authContainer.style.display = 'none';
+        mainContent.style.display = 'block';
+        currentUserElement.textContent = `Angemeldet als: ${currentUser}`;
+    }
+
+
+
+
+
+    function loadUserTransactions() {
+    // Überprüfen, ob der aktuelle Benutzer vorhanden ist
+    if (users[currentUser]) {
+        // Falls ja, lade nur die Transaktionen dieses Benutzers
+        incomeTransactions = users[currentUser].incomeTransactions || [];
+        expenseTransactions = users[currentUser].expenseTransactions || [];
+    } else {
+        // Falls nicht, setze die Transaktionsarrays auf leer
+        incomeTransactions = [];
+        expenseTransactions = [];
+    }
+    // Rendere die Transaktionen des aktuellen Benutzers
+    renderTransactions(incomeTransactions, incomeTransactionsContainer);
+    renderTransactions(expenseTransactions, expenseTransactionsContainer);
+    updateTotal();
+}
+
+
+
+
+
+
+
+
+
+
+// Ereignishandler für die Registrierung
+registerForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const username = document.getElementById('register-username').value;
+    const password = document.getElementById('register-password').value;
+
+    // Überprüfen, ob das Passwort stark genug ist
+    if (!isStrongPassword(password)) {
+        return; // Beende die Registrierung, wenn das Passwort nicht den Anforderungen entspricht
+    }
+
+    if (users[username]) {
+        authMessage.textContent = 'Benutzername ist bereits vergeben.';
+    } else {
+        users[username] = { password, incomeTransactions: [], expenseTransactions: [] };
+        localStorage.setItem('users', JSON.stringify(users));
+        authMessage.textContent = 'Registrierung erfolgreich! Bitte anmelden.';
+    }
+});
+
+// Ereignishandler für die Anmeldung
+loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    // Überprüfen, ob das Passwort stark genug ist
+    if (!isStrongPassword(password)) {
+        return; // Beende die Anmeldung, wenn das Passwort nicht den Anforderungen entspricht
+    }
+
+    if (users[username] && users[username].password === password) {
+        currentUser = username;
+        localStorage.setItem('currentUser', currentUser);
+        showMainContent();
+        loadUserTransactions();
+    } else {
+        authMessage.textContent = 'Ungültiger Benutzername oder Passwort.';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Load and update total balance
+    function updateTotal() {
+        const totalAmount = calculateTotalAmount();
+        const totalSpan = totalSection.querySelector('span');
+        totalSpan.textContent = `${totalAmount}€`;
+
+        if (totalAmount < 0) {
+            totalSpan.style.color = 'red';
+            totalSection.classList.add('flash');
+        } else {
+            totalSpan.style.color = 'green';
+            totalSection.classList.remove('flash');
+        }
+    }
+
+    // Calculate the total balance
+    function calculateTotalAmount() {
+        const incomeTotal = incomeTransactions.reduce((total, transaction) => total + transaction.amount, 0);
+        const expenseTotal = expenseTransactions.reduce((total, transaction) => total + transaction.amount, 0);
+        return incomeTotal - expenseTotal;
+    }
+
+    incomeBtn.addEventListener('click', function () {
+        document.getElementById('income-section').style.display = 'block';
+        document.getElementById('expense-section').style.display = 'none';
+    });
+
+    expenseBtn.addEventListener('click', function () {
+        document.getElementById('income-section').style.display = 'none';
+        document.getElementById('expense-section').style.display = 'block';
+    });
+
+    showAllBtn.addEventListener('click', function () {
+        document.getElementById('income-section').style.display = 'block';
+        document.getElementById('expense-section').style.display = 'block';
+    });
+
+    incomeForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const description = document.getElementById('income-description').value;
+        const amount = parseFloat(document.getElementById('income-amount').value);
+        const category = document.getElementById('income-category').value;
+
+        if (description && amount && category) {
+            const transaction = {
+                description,
+                amount,
+                category
+            };
+
+            incomeTransactions.push(transaction);
+            users[currentUser].incomeTransactions = incomeTransactions;
+            localStorage.setItem('users', JSON.stringify(users));
+            renderTransactions(incomeTransactions, incomeTransactionsContainer);
+            updateTotal();
+            incomeForm.reset();
+            showNotification('Einnahme hinzugefügt. Klicken Sie auf den Pfeil, um sie anzuzeigen.');
+        } else {
+            alert('Bitte geben Sie eine Beschreibung, einen Betrag und wählen Sie eine Kategorie aus.');
+        }
+    });
+
+    expenseForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const description = document.getElementById('expense-description').value;
+        const amount = parseFloat(document.getElementById('expense-amount').value);
+        const category = document.getElementById('expense-category').value;
+
+        if (description && amount && category) {
+            const transaction = {
+                description,
+                amount,
+                category
+            };
+
+            expenseTransactions.push(transaction);
+            users[currentUser].expenseTransactions = expenseTransactions;
+            localStorage.setItem('users', JSON.stringify(users));
+            renderTransactions(expenseTransactions, expenseTransactionsContainer);
+            updateTotal();
+            expenseForm.reset();
+            showNotification('Ausgabe hinzugefügt. Klicken Sie auf den Pfeil, um sie anzuzeigen.');
+        } else {
+            alert('Bitte geben Sie eine Beschreibung, einen Betrag und wählen Sie eine Kategorie aus.');
+        }
+    });
+
+    function renderTransactions(transactions, container) {
+        container.innerHTML = '';
+        transactions.forEach(function (transaction, index) {
+            const transactionElement = document.createElement('div');
+            transactionElement.classList.add('transaction');
+            transactionElement.innerHTML = `
+                <span>${transaction.description} - ${transaction.amount}€ - Kategorie: ${transaction.category}</span>
+                <button class="delete-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(transactionElement);
+        });
+
+        const deleteButtons = container.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const index = parseInt(button.getAttribute('data-index'));
+                transactions.splice(index, 1);
+                users[currentUser].incomeTransactions = incomeTransactions;
+                users[currentUser].expenseTransactions = expenseTransactions;
+                localStorage.setItem('users', JSON.stringify(users));
+                renderTransactions(transactions, container);
+                updateTotal();
+            });
+        });
+    }
+
+    function showNotification(message) {
+        alert(message);
+    }
+
+    incomeToggle.addEventListener('click', function () {
+        toggleTransactionsDisplay(incomeTransactionsContainer, incomeToggle);
+    });
+
+    expenseToggle.addEventListener('click', function () {
+        toggleTransactionsDisplay(expenseTransactionsContainer, expenseToggle);
+    });
+
+    function toggleTransactionsDisplay(container, toggle) {
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block';
+            toggle.classList.remove('fa-chevron-down');
+            toggle.classList.add('fa-chevron-up');
+        } else {
+            container.style.display = 'none';
+            toggle.classList.remove('fa-chevron-up');
+            toggle.classList.add('fa-chevron-down');
+        }
+    }
+
+    incomeTransactionsContainer.style.display = 'block';
+    incomeToggle.classList.remove('fa-chevron-down');
+    incomeToggle.classList.add('fa-chevron-up');
+
+    expenseTransactionsContainer.style.display = 'block';
+    expenseToggle.classList.remove('fa-chevron-down');
+    expenseToggle.classList.add('fa-chevron-up');
+
+    document.getElementById('clear-search-btn').addEventListener('click', function () {
+        document.getElementById('transaction-search').value = '';
+        renderTransactions(incomeTransactions, incomeTransactionsContainer);
+        renderTransactions(expenseTransactions, expenseTransactionsContainer);
+        updateTotal();
+    });
+
+    document.getElementById('search-btn').addEventListener('click', function () {
+        const searchQuery = document.getElementById('transaction-search').value.toLowerCase();
+
+        const foundIncomes = incomeTransactions.filter(transaction =>
+            transaction.description.toLowerCase().includes(searchQuery) ||
+            transaction.amount.toString().includes(searchQuery) ||
+            transaction.category.toLowerCase().includes(searchQuery)
+        );
+
+        const foundExpenses = expenseTransactions.filter(transaction =>
+            transaction.description.toLowerCase().includes(searchQuery) ||
+            transaction.amount.toString().includes(searchQuery) ||
+            transaction.category.toLowerCase().includes(searchQuery)
+        );
+
+        if (foundIncomes.length > 0) {
+            incomeTransactionsContainer.scrollIntoView({ behavior: 'smooth' });
+            renderTransactions(foundIncomes, incomeTransactionsContainer);
+            highlightElement(incomeTransactionsContainer);
+        } else {
+            alert('Keine passenden Einnahmen gefunden.');
+        }
+
+        if (foundExpenses.length > 0) {
+            expenseTransactionsContainer.scrollIntoView({ behavior: 'smooth' });
+            renderTransactions(foundExpenses, expenseTransactionsContainer);
+            highlightElement(expenseTransactionsContainer);
+        } else {
+            alert('Keine passenden Ausgaben gefunden.');
+        }
+    });
+
+    function highlightElement(element) {
+        const originalBackgroundColor = element.style.backgroundColor;
+        element.style.backgroundColor = '#cce5ff';
+        element.style.borderRadius = '10px';
+
+        setTimeout(function () {
+            element.style.backgroundColor = originalBackgroundColor;
+            element.style.borderRadius = '';
+            element.style.height = '';
+        }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Hier befindet sich dein vorhandener Code
+
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (username === 'admin' && password === 'adminpassword') {
+                showAdminPanel();
+            } else {
+                // Normale Anmeldung für nicht-Admin-Benutzer
+                // Dein vorhandener Code hier
+            }
+        });
+
+        function showAdminPanel() {
+            // Verstecke den Hauptinhalt und zeige den Admin-Panel an
+            mainContent.style.display = 'none';
+            adminPanel.style.display = 'block';
+
+            // Rufe die Funktion auf, um alle registrierten Benutzer anzuzeigen
+            displayAllUsers();
+        }
+
+        function displayAllUsers() {
+            const adminPanelContainer = document.getElementById('admin-panel-container');
+            adminPanelContainer.innerHTML = ''; // Lösche vorherige Inhalte
+
+            for (let user in users) {
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user-info');
+
+                const username = document.createElement('span');
+                username.textContent = user;
+
+                const password = document.createElement('span');
+                password.textContent = users[user].password;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Löschen';
+                deleteButton.dataset.username = user; // Speichere den Benutzernamen im dataset des Buttons
+
+                deleteButton.addEventListener('click', function () {
+                    const userToDelete = this.dataset.username;
+                    delete users[userToDelete];
+                    localStorage.setItem('users', JSON.stringify(users));
+                    displayAllUsers(); // Aktualisiere die Benutzerliste nach dem Löschen
+                });
+
+                userDiv.appendChild(username);
+                userDiv.appendChild(password);
+                userDiv.appendChild(deleteButton);
+                adminPanelContainer.appendChild(userDiv);
+            }
+        }
+
+        // Hier befindet sich dein vorhandener Code
+    });
+
+
+    document.getElementById('email-button').addEventListener('click', function () {
+        window.location.href = 'mailto:neumeierraphael342@gmail.com';
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">To-Do</h1>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Neue To Do eingeben">
+            <select id="prioritySelect">
+                <option value="unwichtig">Verschiebbar</option>
+                <option value="wichtig">Wichtig</option>
+                <option value="sehr-wichtig">Sehr Wichtig</option>
+            </select>
+            <button id="addTaskBtn">Hinzufügen</button>
+        </div>
+
+        <div class="tasks-container">
+            <div class="task-box" id="unwichtigTasks">
+                <h2>Verschiebbare To Do's:</h2>
+                <ul id="unwichtigList"></ul>
+            </div>
+            <div class="task-box" id="wichtigTasks">
+                <h2>Wichtige To Do's:</h2>
+                <ul id="wichtigList"></ul>
+            </div>
+            <div class="task-box" id="sehrWichtigTasks">
+                <h2>Sehr wichtige To Do's:</h2>
+                <ul id="sehrWichtigList"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

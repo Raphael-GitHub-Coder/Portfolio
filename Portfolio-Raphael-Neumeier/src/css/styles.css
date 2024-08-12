@@ -1,0 +1,669 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Anton", sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 15px;
+    padding-bottom: 11px;
+    box-shadow: 0 0 20px 0 rgb(51, 49, 49);
+
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 28px; /* Größere Schriftgröße */
+    float: left;
+    margin-left: 20px; /* Abstand zum linken Rand */
+}
+
+.logo:hover {
+    color: aqua;
+}
+
+.nav-links {
+    font-size: 24px;
+    float: right;
+    list-style: none;
+    padding-top: 4px;
+}
+
+.nav-links li {
+    display: inline;
+    margin-left: 40px; /* Größerer Abstand zwischen den Links */
+}
+
+.nav-links li > a:hover {
+    color: aqua;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black; /* Schwarzer Hintergrund */
+    color: white;
+    padding-top: 300px;
+    padding-bottom: 5%;
+    padding-left: 27%;
+    /* padding: 300px 27%; Größerer Abstand oben und unten, 20px Abstand rechts  */
+    text-align: left; /* Text linksbündig ausrichten */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 60px; /* Größere Schriftgröße */
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 30px; /* Größere Schriftgröße */
+}
+
+.container {
+    display: flex; /* Flexbox verwenden */
+    justify-content: space-between; /* Platz zwischen den Elementen */
+}
+
+.text-content {
+    flex: 1; /* Der Text nimmt den verfügbaren Platz ein */
+}
+
+.image-container {
+    flex-shrink: 0; /* Das Bild wird nicht verkleinert */
+    margin-top: -60px; /* Versatz nach oben anpassen */
+    margin-left: 60px; /* Abstand zwischen dem Text und dem Bild */
+}
+
+.hero img {
+    max-width: 50%; /* Bildgröße anpassen */
+    height: auto; /* Höhe automatisch anpassen */
+}
+
+
+  .transition {
+    padding-bottom: 80px;
+    color: white;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to bottom, black 0%, aqua 100%);
+}
+
+#text-über-mich {
+    margin-left: 5%;
+    margin-right: 40%;
+    padding-top: 120px;
+    font-size: 24px;
+    padding-bottom: 80px;
+    margin-bottom: -420px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#uberMich {
+    padding-top: 80px;
+    font-family: "Anton", sans-serif;
+    padding-bottom: 70px;
+    font-size: 3rem;
+}
+
+#text-über-mich > p {
+    padding-top: 15px;
+}
+
+
+
+
+nav ul.nav-links li {
+    position: relative;
+    display: inline-block;
+}
+
+nav ul.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: aqua; /* Farbe des Balkens */
+    transition: width 0.3s ease; /* Animationseffekt */
+}
+
+nav ul.nav-links li:hover::after {
+    width: 100%; /* Breite des Balkens beim Hovern */
+}
+
+
+.KalenderBild {
+    position: absolute;
+    height: 27px;
+    padding-left: 260px;
+    margin-top: -60px;
+}
+
+.RaphaelBild {
+    height: 400px;
+    position: relative;
+    top: -550px;
+    left: 1300px;
+}
+
+
+/* SKILLSET */
+
+
+
+
+
+.containerMitte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Füllt den gesamten Bildschirm vertikal */
+}
+
+
+#SKILLSET-H1 {
+    color: black;
+    padding-top: 140px;
+    padding-left: 5%;
+    font-family: "Anton", sans-serif;
+    padding-bottom: 30px;
+    font-size: 3rem;
+}
+
+
+.rounded-box {
+    transition: width 0.3s, height 0.3s;
+    color: black;
+    display: inline-block;
+    position: relative;
+    top: -180px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 300px;
+    height: 450px;
+    background-color: black;
+    border-radius: 20px; /* Die Ecken des Kastens abrunden */
+    box-shadow: 5px 5px 10px rgb(41, 40, 40); /* Einen Box-Schatten hinzufügen */
+}
+
+.rounded-box:hover {
+    width: 350px;
+    height: 500px;
+}
+
+.transitionSkill {
+    color: white;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to bottom, aqua 0%,  rgb(230, 228, 228) 5%);
+}
+
+.transitionSkill > h1 {
+    padding-top: 140px;
+    padding-left: 60px;
+    color: white;
+}
+
+.rounded-box > p {
+    color: white;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rounded-box > h2 {
+    color: white;
+    font-size: 34px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.bildSkills {
+    height: 40px;
+    width: 40px;
+    margin-top: 40px;
+}
+
+.cssJpg {
+    margin-top: 60px;
+}
+
+.htmlJpg {
+    margin-top: 60px;
+}
+
+.mittigbild {
+    text-align: center;
+}
+
+
+
+
+
+
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-text {
+    color: white;
+    display: none;
+    position: absolute;
+    left: calc(40% + 10px);
+    top: 75%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+.tooltip-container:hover .tooltip-text {
+    display: block;
+    transition-delay: 0.3s; /* Verzögerung, um mit dem Logo zu synchronisieren */
+}
+
+.tooltip-container img {
+    transition: transform 0.3s;
+}
+
+.tooltip-container:hover img {
+    transition: transform 0.3s ease;
+    transform: translateX(-40px);
+}
+
+
+
+
+
+.tooltip-container1 {
+    position: relative;
+}
+
+.tooltip-text1 {
+    color: white;
+    display: none;
+    position: absolute;
+    left: calc(36% + 10px);
+    top: 75%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+
+.tooltip-container1:hover .tooltip-text1 {
+    display: block;
+    transition-delay: 0.3s; /* Verzögerung, um mit dem Logo zu synchronisieren */
+}
+
+.tooltip-container1 img {
+    transition: transform 0.3s;
+}
+
+.tooltip-container1:hover img {
+    transition: transform 0.3s ease;
+    transform: translateX(-60px);
+}
+
+
+
+
+.tooltip-container2 {
+    position: relative;
+}
+
+.tooltip-text2 {
+    color: white;
+    display: none;
+    position: absolute;
+    left: calc(33% + 10px);
+    top: 75%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+.tooltip-container2:hover .tooltip-text2 {
+    display: block;
+    transition-delay: 0.3s; /* Verzögerung, um mit dem Logo zu synchronisieren */
+}
+
+.tooltip-container2 img {
+    transition: transform 0.3s;
+}
+
+.tooltip-container2:hover img {
+    transition: transform 0.3s ease;
+    transform: translateX(-68px);
+}
+
+
+
+
+
+.tooltip-container3 {
+    position: relative;
+}
+
+.tooltip-text3 {
+    color: white;
+    display: none;
+    position: absolute;
+    left: calc(28.5% + 10px);
+    top: 75%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+.tooltip-container3:hover .tooltip-text3 {
+    display: block;
+    transition-delay: 0.3s; /* Verzögerung, um mit dem Logo zu synchronisieren */
+}
+
+.tooltip-container3 img {
+    transition: transform 0.3s;
+}
+
+.tooltip-container3:hover img {
+    transition: transform 0.3s ease;
+    transform: translateX(-81px);
+}
+
+
+
+.tooltip-container4 {
+    position: relative;
+}
+
+.tooltip-text4 {
+    color: white;
+    display: none;
+    position: absolute;
+    left: calc(34% + 10px);
+    top: 75%;
+    transform: translateY(-50%);
+    padding: 5px 10px;
+}
+
+.tooltip-container4:hover .tooltip-text4 {
+    display: block;
+    transition-delay: 0.3s; /* Verzögerung, um mit dem Logo zu synchronisieren */
+}
+
+.tooltip-container4 img {
+    transition: transform 0.3s;
+}
+
+.tooltip-container4:hover img {
+    transition: transform 0.3s ease;
+    transform: translateX(-63px);
+}
+
+
+
+
+/* PROJEKTE */
+
+
+
+.rounded-image {
+    border-radius: 10px; /* Hier kannst du die Größe der abgerundeten Ecken einstellen */
+    height: 55%;
+    width: auto;
+    position: absolute;
+    top: 60px;
+    right: 70px;
+}
+
+
+
+.ProjekteH1 {
+    color: black;
+    padding-top: 140px;
+    padding-left: 5%;
+    font-family: "Anton", sans-serif;
+    font-size: 3rem;
+}
+
+
+.transitionProjekt {
+    margin-top: -350px;
+    padding-bottom: 80px;
+    color: white;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to bottom, rgb(230, 228, 228) -2%, aqua 100%);
+}
+
+
+.containerProjekte {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 90px;
+    padding-top: 50%;
+    padding-bottom: 1290px;
+}
+
+
+.rounded-boxProjekte {
+    position: relative;
+    top: 120px;
+    transition: transform 0.3s ease;
+    color: rgb(207, 203, 203);
+    display: inline-block;
+    margin-top: 40px;
+    width: 80%;
+    height: auto;
+    background-color: black;
+    border-radius: 20px; /* Die Ecken des Kastens abrunden */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Einen Box-Schatten hinzufügen */
+}
+
+.transition > h1 {
+    margin-top: -390px;
+    padding-top: 120px;
+    padding-left: 5%;
+    font-family: "Anton", sans-serif;
+    padding-bottom: 60px;
+    font-size: 3rem;
+}
+
+.rounded-boxProjekte > p {
+    transition: transform 0.3s ease;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.rounded-boxProjekte > h2 {
+    transition: transform 0.3s ease;
+    padding-top: 30px;
+    padding-left: 30px;
+    /* color: rgb(119, 116, 116); */
+    padding-bottom: 10px;
+    font-size: 32px;
+}
+
+.rounded-boxProjekte:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+
+.CodeLanguageProjekt {
+    padding-left: 30px;
+    margin-top: -20px;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.CodeLanguageProjekt1 {
+    padding-left: 293px;
+    margin-top: -60px;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+
+.kreis {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-70%, 90%);
+    width: 50px;
+    height: 50px;
+    background-color: white; /* Standardfarbe des Kreises */
+    border-radius: 50%;
+    visibility: hidden; /* Kreis standardmäßig verstecken */
+    transition: visibility 0s; /* Überblendung für eine weiche Erscheinung */
+  }
+  
+  .rounded-boxProjekte:hover:hover .kreis {
+    visibility: visible; /* Kreis sichtbar machen, wenn Kasten gehovert wird */
+  }
+
+
+  .kreis2 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-70%, 195%);
+    width: 50px;
+    height: 50px;
+    background-color: white; /* Standardfarbe des Kreises */
+    border-radius: 50%;
+    visibility: hidden; /* Kreis standardmäßig verstecken */
+    transition: visibility 0s; /* Überblendung für eine weiche Erscheinung */
+  }
+  
+  .rounded-boxProjekte:hover:hover .kreis2 {
+    visibility: visible; /* Kreis sichtbar machen, wenn Kasten gehovert wird */
+  }
+
+  .monitor {
+    padding-top: 2px;
+    padding-left: 0;
+    height: 40px;
+    width: auto;
+  }
+
+  .monitor1 {
+    margin-left: -.7px;
+    padding-top: 4px;
+    height: 33px;
+    width: auto;
+  }
+
+
+/* KONTAKTFORMULAR */
+
+
+
+
+#KONTAKT-H1 {
+    color: white;
+    padding-top: 147px;
+    padding-left: 0%;
+    font-family: "Anton", sans-serif;
+    padding-bottom: 30px;
+    font-size: 3rem;
+}
+
+
+
+
+.transitionKontakt {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 258px;
+    padding-bottom: 258px;
+    color: white;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to bottom, aqua 0%,  black 10%);
+}
+
+.kontakt-text {
+    margin-top: 15px;
+    margin-left: 0%;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.rating {
+  display: inline-block;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 0 2px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Star_rating_5_of_5.png/20px-Star_rating_5_of_5.png');
+}
+
+.rating input:checked ~ label {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Star_rating_5_of_5_empty.png/20px-Star_rating_5_of_5_empty.png');
+}
+
+
+
+.contact-container {
+    text-align: center;
+}
+
+.contact-button {
+    background-color: #ffffff; /* Schwarz */
+    color: black; /* Weiß */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 40px;
+    margin-left: 45%;
+    margin-right: 45%;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.contact-button:hover {
+    background-color: rgb(114, 117, 117); /* Dunkelgrau */
+}
+
+.schlussText {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(185, 181, 181);
+    position: relative;
+    bottom: -180px;
+    text-align: center;
+}

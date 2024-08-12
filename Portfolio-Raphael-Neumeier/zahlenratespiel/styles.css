@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #3a423e, #141414);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(40, 44, 44, 0);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(239, 245, 243, 0.5);
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.instruction,
+.message {
+    color: #ddd;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(230, 234, 235, 0.1);
+    border: none;
+    color: #dbdbdb;
+    font-size: 1.2rem;
+    width: 200px;
+    text-align: center;
+    transition: border-bottom 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #3b3e41;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #d6d9df;
+}
+
+.message {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: #ddd;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.attempts-counter {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px;
+    color: #e7e1e1;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

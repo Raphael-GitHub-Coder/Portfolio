@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlenratespiel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Zahlenratespiel</h1>
+        <div class="difficulty-buttons">
+            <button onclick="setDifficulty(10)">Leicht (10 Versuche)</button>
+            <button onclick="setDifficulty(5)">Mittel (5 Versuche)</button>
+            <button onclick="setDifficulty(3)">Schwer (3 Versuche)</button>
+        </div>
+        <div class="attempts-counter" id="attempts-counter"></div>
+        <p class="instruction">Gib deine Vermutung für die Zahl zwischen 1 und 100 ein:</p>
+        <input type="number" id="guessInput" class="input-field">
+        <button onclick="checkGuess()" class="submit-button">Überprüfen</button>
+        <p id="message" class="message"></p>
+        <button onclick="restartGame()" class="restart-button">Neu beginnen</button>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Gewonnen!</h2>
+            <p id="popup-message"></p>
+            <button onclick="restartGameFromPopup()" class="restart-button">Erneut spielen</button>
+        </div>
+    </div>
+
+    <div id="lossPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLossPopup()">&times;</span>
+            <h2>Verloren!</h2>
+            <p id="loss-popup-message"></p>
+            <button onclick="restartGameFromLossPopup()" class="restart-button">Erneut versuchen</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
