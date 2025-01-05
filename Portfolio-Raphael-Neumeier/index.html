@@ -222,17 +222,16 @@
         }
     }
 
-    // Funktion, um das Standardverhalten des Links zu verhindern
+
     document.querySelectorAll('nav ul.nav-links li a').forEach(function(link) {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Verhindert das Standardverhalten des Links
-            var sectionClass = link.getAttribute('href'); // Holt sich die Zielklasse
-            scrollToSection(sectionClass); // Scrollt zum entsprechenden Abschnitt
+            e.preventDefault(); 
+            var sectionClass = link.getAttribute('href');
+            scrollToSection(sectionClass);
         });
     });
 
     function sendEmail() {
-        // Hier deine E-Mail-Adresse eintragen
         var emailAddress = "neumeierraphael342@gmail.com";
         window.location.href = "mailto:" + emailAddress;
     }
